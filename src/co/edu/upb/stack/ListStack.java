@@ -15,7 +15,7 @@ public class ListStack implements StackInterface{
 
     @Override
     public void clear() {
-        //todo
+        this.top = null;
     }
 
     @Override
@@ -25,31 +25,35 @@ public class ListStack implements StackInterface{
 
     @Override
     public Object peek() {
-        //todo GET TOP
-        return null;
+        return top.getObject();
     }
 
     @Override
     public Object pop() {
-        //todo
-        return null;
+        StackNode oldTop = this.top;
+        this.top = this.top.below;
+        return oldTop.getObject();
     }
 
     @Override
     public boolean push(Object object) {
-        StackNode node = new StackNode(object);
-        if(!this.isEmpty()){
-            this.top.above = node;
+        StackNode newHead = new StackNode(object);
+        try {
+            if(!isEmpty()){
+                newHead.below = this.top;
+            }
+            this.top = newHead;
+            this.size += 1;
+            return true;
+        }catch (Exception e){
+            System.out.println("Error at attempting to push the object");
+            return false;
         }
-        this.top = node;
-        this.size += 1;
-        return true;
     }
 
     @Override
     public int size() {
-        //todo
-        return 0;
+        return this.size;
     }
 
     @Override
@@ -66,5 +70,13 @@ public class ListStack implements StackInterface{
     @Override
     public void reverse() {
         //todo
+    }
+
+    @Override
+    public String toString() {
+        return "ListStack{" +
+                top.toString() +
+                ", size=" + size +
+                '}';
     }
 }

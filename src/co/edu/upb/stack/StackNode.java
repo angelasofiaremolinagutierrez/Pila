@@ -3,16 +3,16 @@ package co.edu.upb.stack;
 public class StackNode {
 
     private Object object;
-    public StackNode above;
+    public StackNode below;
 
     public StackNode(){
         this.object = null;
-        this.above = null;
+        this.below = null;
     }
 
     public StackNode(Object object){
         this.object = object;
-        this.above = null;
+        this.below = null;
     }
 
     public Object getObject() {
@@ -27,7 +27,7 @@ public class StackNode {
     public String toString() {
         return "{" +
                 "object=" + object +
-                ", next=" + above +
+                ", below=" + below +
                 '}';
     }
 
