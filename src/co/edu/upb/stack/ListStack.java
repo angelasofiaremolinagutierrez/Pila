@@ -32,6 +32,7 @@ public class ListStack implements StackInterface{
     public Object pop() {
         StackNode oldTop = this.top;
         this.top = this.top.below;
+        this.size = this.size-1;
         return oldTop.getObject();
     }
 
@@ -58,7 +59,13 @@ public class ListStack implements StackInterface{
 
     @Override
     public boolean search(Object object) {
-        //todo
+        StackNode node = top;
+        for (int i = 0; i < this.size; i++) {
+            if(node.getObject().equals(object)){
+                return true;
+            }
+            node = node.below;
+        }
         return false;
     }
 
