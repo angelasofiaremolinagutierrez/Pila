@@ -16,5 +16,8 @@ public class Main {
         System.out.println("Invertido:");
         pruebaPila.reverse();
         System.out.println(pruebaPila.toString());
+        System.out.println("Ordenado:");
+        pruebaPila.sort();
+        System.out.println(pruebaPila.toString());
     }
 }

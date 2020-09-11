@@ -86,8 +86,10 @@ public class ListStack implements StackInterface{
         Arrays.sort(array);
 
         ListStack pilaOrdenada = new ListStack();
-        for (int i = array.length-1; i <= 0 ; i++) {
-            pilaOrdenada.push(array[i]);
+        int cont =0;
+        for (int i = array.length-1; i >= 0 ; i--) {
+            pilaOrdenada.push(array[cont]);
+            cont++;
         }
 
         this.top = pilaOrdenada.top;
@@ -101,6 +103,7 @@ public class ListStack implements StackInterface{
             temp.push(this.pop());
         }
         this.top = temp.top;
+        this.size = temp.size;
     }
 
     @Override
