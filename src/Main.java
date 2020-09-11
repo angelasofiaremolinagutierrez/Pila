@@ -13,6 +13,8 @@ public class Main {
         System.out.println("Elemento eliminado: "+pruebaPila.pop());
         System.out.println("Después:");
         System.out.println(pruebaPila.toString());
-        System.out.println(pruebaPila.search(5));
+        System.out.println("Invertido:");
+        pruebaPila.reverse();
+        System.out.println(pruebaPila.toString());
     }
 }

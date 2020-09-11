@@ -1,6 +1,6 @@
 package co.edu.upb.stack;
 
-public class StackNode {
+public class StackNode implements Comparable<StackNode>{
 
     private Object object;
     public StackNode below;
@@ -31,4 +31,8 @@ public class StackNode {
                 '}';
     }
 
+    @Override
+    public int compareTo(StackNode n1) {
+        return (this.getObject().toString()).compareTo(n1.getObject().toString());
+    }
 }

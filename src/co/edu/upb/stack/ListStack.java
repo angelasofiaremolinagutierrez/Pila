@@ -1,5 +1,7 @@
 package co.edu.upb.stack;
 
+import java.util.Arrays;
+
 public class ListStack implements StackInterface{
 
     StackNode top;
@@ -31,7 +33,11 @@ public class ListStack implements StackInterface{
     @Override
     public Object pop() {
         StackNode oldTop = this.top;
-        this.top = this.top.below;
+        if(size==1){
+            this.top = null;
+        }else {
+            this.top = this.top.below;
+        }
         this.size = this.size-1;
         return oldTop.getObject();
     }
@@ -71,12 +77,30 @@ public class ListStack implements StackInterface{
 
     @Override
     public void sort() {
-        //todo
+        Object[] array =  new Object[this.size];
+        StackNode nodo = this.top;
+        for (int i = 0; i <this.size ; i++) {
+            array[i] = nodo.getObject();
+            nodo = nodo.below;
+        }
+        Arrays.sort(array);
+
+        ListStack pilaOrdenada = new ListStack();
+        for (int i = array.length-1; i <= 0 ; i++) {
+            pilaOrdenada.push(array[i]);
+        }
+
+        this.top = pilaOrdenada.top;
+
     }
 
     @Override
     public void reverse() {
-        //todo
+        ListStack temp = new ListStack();
+        for (int i = 0; i <= this.size+1; i++) {
+            temp.push(this.pop());
+        }
+        this.top = temp.top;
     }
 
     @Override
