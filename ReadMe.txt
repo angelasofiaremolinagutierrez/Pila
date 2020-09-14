@@ -1,0 +1,1 @@
+Profe solo necesita correr el Main.java y allí le pedirá que ingrese la expresión aritmetica y le devolverá la expresión polaca inversa o postfija de dicha expresión.

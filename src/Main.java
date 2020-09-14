@@ -8,6 +8,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         System.out.println("Ingrese una expresión aritmetica (con los simbolos: + para suma, - para resta, * para multiplicación, / para división, ^ para potenciación):");
         String expOriginal = scan.nextLine();
+        System.out.println("Aquí está su expresión convertida a una expresión polaca inversa o postfija:");
         String res = evaluarExpresionAritmetica(expOriginal);
         System.out.println(res);
     }
